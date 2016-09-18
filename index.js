@@ -5,7 +5,7 @@ var dotEnv = require('dotenv').load({silent:true});
 var apiRoutes = require('./api.js');
 var mongoose = require('mongoose');
 var app = express();
-var port = process.env.PORT||5000;
+var port = process.env.PORT||3000;
 
 mongoose.connect(process.env.MONGODB_URL, function(err){
     if(err){console.log("Oops, error connecting to DB");}

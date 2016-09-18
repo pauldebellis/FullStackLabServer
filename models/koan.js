@@ -6,4 +6,4 @@ var koanSchema = mongoose.Schema({
 
 var Koan = mongoose.model('Koan', koanSchema);
 
-module.exports = Koan;
+module.exports=Koan;

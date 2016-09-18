@@ -10,8 +10,8 @@ apiRouter.get('/koans', function(req,res){
 });
 
 apiRouter.get('/koans/:id', function(req,res){
-    Koan.findOne({_id: req.params.id},function(err,photo){
-        res.json(photo)
+    Koan.findOne({_id: req.params.id},function(err,koan){
+        res.json(koan)
     });
 });
 
@@ -23,7 +23,7 @@ apiRouter.post('/koans', function(req,res){
 
 apiRouter.delete('/koans/:id', function(req,res){
     Koan.findOneAndRemove({_id: req.params.id}, function(err){
-        res.json({message: "Photo deleted", success:true})
+        res.json({message: "Koan deleted", success:true})
     });
 });
 
