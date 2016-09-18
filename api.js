@@ -27,4 +27,10 @@ apiRouter.delete('/koans/:id', function(req,res){
     });
 });
 
+apiRouter.patch('/koans/:id', function(req,res){
+    Koan.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}, function(err, koan){
+        res.json({message: "Koan updated", koan: koan});
+    });
+});
+
 module.exports=apiRouter;
