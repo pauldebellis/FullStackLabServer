@@ -1,7 +1,7 @@
 var bodyParser = require('body-parser');
 var express = require('express');
 var apiRouter = express.Router();
-var Photo = require('./models/koan.js');
+var Koan = require('./models/koan.js');
 
 apiRouter.get('/koans', function(req,res){
     Koan.find({}, function(err, koans){
@@ -11,8 +11,14 @@ apiRouter.get('/koans', function(req,res){
 
 apiRouter.get('/koans/:id', function(req,res){
     Koan.findOne({_id: req.params.id},function(err,photo){
-        res.json(photo);
-    })
-})
+        res.json(photo)
+    });
+});
+
+apiRouter.post('/koans', function(req,res){
+    Koan.create(req.body,function(err,koan){
+        res.json(koan)
+    });
+});
 
 module.exports=apiRouter;
