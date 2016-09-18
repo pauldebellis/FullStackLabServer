@@ -21,4 +21,10 @@ apiRouter.post('/koans', function(req,res){
     });
 });
 
+apiRouter.delete('/koans/:id', function(req,res){
+    Koan.findOneAndRemove({_id: req.params.id}, function(err){
+        res.json({message: "Photo deleted", success:true})
+    });
+});
+
 module.exports=apiRouter;
